@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রিয় মাহনূর</title>
+    <style>
+        /* Body styling for mobile scrolling */
+        body {
+            font-family: 'SolaimanLipi', sans-serif;
+            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #scroll-container {
+            max-height: 100vh;
+            overflow-y: auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #poem-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        h1 {
+            color: #ff5e73;
+            font-size: 2em;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.6em;
+            margin: 20px 0;
+        }
+
+        /* Heart animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes floatHeart {
+            0% { opacity: 0; transform: translateY(0); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-100px); }
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            color: #ff5e73;
+            font-size: 1.5em;
+            animation: floatHeart 4s infinite;
+        }
+        .heart:nth-child(1) { top: 80%; left: 30%; animation-delay: 0s; }
+        .heart:nth-child(2) { top: 85%; left: 60%; animation-delay: 1s; }
+        .heart:nth-child(3) { top: 90%; left: 45%; animation-delay: 2s; }
+        .heart:nth-child(4) { top: 88%; left: 20%; animation-delay: 3s; }
+
+        /* Play button styling */
+        #play-button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #ff5e73;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        #play-button:hover {
+            background-color: #ff4a63;
+        }
+    </style>
+</head>
+<body>
+    <div id="scroll-container">
+        <div id="poem-container">
+            <h1>প্রিয় মাহু,</h1>
+            <p>তোমার মধুর হাসি আমার হৃদয়ে অমৃতের মতো, <br>
+            প্রতিটি স্বপ্নে তুমি, প্রতি নিশ্বাসে তুমি।<br>
+            রাতের নির্জনে তোমার স্মৃতির ছোঁয়ায়,<br>
+            আমার মন সিক্ত হয় ভালোবাসার মায়ায়।<br><br>
+            চিরকাল শুধু তোমার জন্য, <br>
+            এই হৃদয় থাকবে অপেক্ষায়, <br>
+            সীমাহীন ভালোবাসায় চিরন্তন অঙ্গীকার।<br><br>
+            তোমার জন্যই, প্রিয় মাহনূর। ❤️</p>
+            <!-- Play Music Button -->
+            <button id="play-button" onclick="toggleMusic()">🎶 Play Music</button>
+        </div>
+    </div>
+
+    <!-- Floating hearts for animation -->
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+
+    <!-- Audio Element -->
+    <audio id="background-music" src="iloveu.mp3" loop></audio>
+
+    <script>
+        const music = document.getElementById('background-music');
+        const playButton = document.getElementById('play-button');
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                playButton.textContent = '⏸ Pause Music';
+            } else {
+                music.pause();
+                playButton.textContent = '🎶 Play Music';
+            }
+        }
+    </script>
+</body>
+</html>
